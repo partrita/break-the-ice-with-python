@@ -1,18 +1,18 @@
-# Question 26
+# 문제 26
 
-### **Question:**
+### **문제:**
 
-> **_Define a function which can compute the sum of two numbers._**
-
----
-
-### Hints:
-
-> **_Define a function with two numbers as arguments. You can compute the sum in the function and return the value._**
+> **_두 숫자의 합을 계산할 수 있는 함수를 정의하십시오._**
 
 ---
 
-**Main author's Solution: Python 2**
+### 힌트:
+
+> **_두 숫자를 인수로 사용하는 함수를 정의하십시오. 함수 내에서 합계를 계산하고 값을 반환할 수 있습니다._**
+
+---
+
+**주요 저자 솔루션: 파이썬 2**
 
 ```python
 def SumFunction(number1, number2):
@@ -23,30 +23,30 @@ print SumFunction(1,2)
 
 ---
 
-**My Solution: Python 3**
+**내 솔루션: 파이썬 3**
 
 ```python
-sum = lambda n1,n2 : n1 + n2      # here lambda is use to define little function as sum
+sum = lambda n1,n2 : n1 + n2      # 여기서 람다는 합계와 같은 작은 함수를 정의하는 데 사용됩니다.
 print(sum(1,2))
 ```
 
 ---
 
-# Question 27
+# 문제 27
 
-### **Question:**
+### **문제:**
 
-> **_Define a function that can convert a integer into a string and print it in console._**
-
----
-
-### Hints:
-
-> **_Use str() to convert a number to string._**
+> **_정수를 문자열로 변환하여 콘솔에 인쇄할 수 있는 함수를 정의하십시오._**
 
 ---
 
-**Main author's Solution: Python 2**
+### 힌트:
+
+> **_str()을 사용하여 숫자를 문자열로 변환하십시오._**
+
+---
+
+**주요 저자 솔루션: 파이썬 2**
 
 ```python
 def printValue(n):
@@ -57,32 +57,32 @@ printValue(3)
 
 ---
 
-**My Solution: Python 3**
+**내 솔루션: 파이썬 3**
 
 ```python
-conv = lambda x : str(x)
+conv = lambda x : str(x) # 람다 함수 conv는 입력 x를 문자열로 변환합니다.
 n = conv(10)
 print(n)
-print(type(n))            # checks the type of the variable
+print(type(n))            # 변수의 유형을 확인합니다.
 ```
 
 ---
 
-# Question 28
+# 문제 28
 
-### **Question:**
+### **문제:**
 
-> **_Define a function that can receive two integer numbers in string form and compute their sum and then print it in console._**
-
----
-
-### Hints:
-
-> **_Use int() to convert a string to integer._**
+> **_문자열 형태로 두 개의 정수를 받아 합계를 계산한 다음 콘솔에 인쇄할 수 있는 함수를 정의하십시오._**
 
 ---
 
-**Main author's Solution: Python 2**
+### 힌트:
+
+> **_int()를 사용하여 문자열을 정수로 변환하십시오._**
+
+---
+
+**주요 저자 솔루션: 파이썬 2**
 
 ```python
 def printValue(s1,s2):
@@ -92,30 +92,30 @@ printValue("3","4") #7
 
 ---
 
-**My Solution: Python 3**
+**내 솔루션: 파이썬 3**
 
 ```python
-sum = lambda s1,s2 : int(s1) + int(s2)
+sum = lambda s1,s2 : int(s1) + int(s2) # 람다 함수 sum은 문자열 s1, s2를 정수로 변환하여 더합니다.
 print(sum("10","45"))      # 55
 ```
 
 ---
 
-# Question 29
+# 문제 29
 
-### **Question:**
+### **문제:**
 
-> **_Define a function that can accept two strings as input and concatenate them and then print it in console._**
-
----
-
-### Hints:
-
-> **_Use + sign to concatenate the strings._**
+> **_두 개의 문자열을 입력으로 받아 연결한 다음 콘솔에 인쇄할 수 있는 함수를 정의하십시오._**
 
 ---
 
-**Main author's Solution: Python 2**
+### 힌트:
+
+> **_+ 기호를 사용하여 문자열을 연결하십시오._**
+
+---
+
+**주요 저자 솔루션: 파이썬 2**
 
 ```python
 def printValue(s1,s2):
@@ -126,30 +126,30 @@ printValue("3","4") #34
 
 ---
 
-**My Solution: Python 3**
+**내 솔루션: 파이썬 3**
 
 ```python
-sum = lambda s1,s2 : s1 + s2
+sum = lambda s1,s2 : s1 + s2 # 람다 함수 sum은 문자열 s1과 s2를 연결합니다.
 print(sum("10","45"))        # 1045
 ```
 
 ---
 
-# Question 30
+# 문제 30
 
-### **Question:**
+### **문제:**
 
-> **_Define a function that can accept two strings as input and print the string with maximum length in console. If two strings have the same length, then the function should print all strings line by line._**
-
----
-
-### Hints:
-
-> **_Use len() function to get the length of a string._**
+> **_두 개의 문자열을 입력으로 받아 콘솔에 최대 길이의 문자열을 인쇄할 수 있는 함수를 정의하십시오. 두 문자열의 길이가 같으면 함수는 모든 문자열을 한 줄씩 인쇄해야 합니다._**
 
 ---
 
-**Main author's Solution: Python 2**
+### 힌트:
+
+> **_len() 함수를 사용하여 문자열의 길이를 가져옵니다._**
+
+---
+
+**주요 저자 솔루션: 파이썬 2**
 
 ```python
 def printValue(s1,s2):
@@ -169,7 +169,7 @@ printValue("one","three")
 
 ---
 
-**My Solution: Python 3**
+**내 솔루션: 파이썬 3**
 
 ```python
 def printVal(s1,s2):
@@ -183,21 +183,24 @@ def printVal(s1,s2):
         print(s1)
         print(s2)
 
-s1,s2=input().split()
+s1,s2=input().split() # 사용자로부터 공백으로 구분된 두 문자열을 입력받습니다.
 printVal(s1,s2)
 ```
 
 ---
 
 ```python
-'''Solution by: yuan1z'''
+'''솔루션 작성자: yuan1z'''
 func = lambda a,b: print(max((a,b),key=len)) if len(a)!=len(b) else print(a+'\n'+b)
+# 람다 함수 func:
+# len(a)와 len(b)가 다르면, key=len을 사용하여 길이가 더 긴 문자열을 찾아 출력합니다.
+# 길이가 같으면 a와 b를 각각 다른 줄에 출력합니다.
 ```
 
 ---
 
-[**_go to previous day_**](https://github.com/darkprinx/100-plus-Python-programming-exercises-extended/blob/master/Status/Day%208.md "Day 9")
+[**_이전 날로 가기_**](https://github.com/darkprinx/100-plus-Python-programming-exercises-extended/blob/master/Status/Day%208.md "8일차")
 
-[**_go to next day_**](https://github.com/darkprinx/100-plus-Python-programming-exercises-extended/blob/master/Status/Day_10.md "Day 10")
+[**_다음 날로 가기_**](https://github.com/darkprinx/100-plus-Python-programming-exercises-extended/blob/master/Status/Day_10.md "10일차")
 
-[**_Discussion_**](https://github.com/darkprinx/100-plus-Python-programming-exercises-extended/issues/3)
+[**_토론_**](https://github.com/darkprinx/100-plus-Python-programming-exercises-extended/issues/3)

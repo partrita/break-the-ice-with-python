@@ -1,201 +1,222 @@
-# Question 80
+# 문제 80
 
-### **Question**
+### **문제**
 
-> **_Please write a program to print the list after removing even numbers in [5,6,77,45,22,12,24]._**
-
----
-
-### Hints
-
-> **_Use list comprehension to delete a bunch of element from a list._**
+> **_[5,6,77,45,22,12,24] 리스트에서 짝수를 제거한 후 리스트를 인쇄하는 프로그램을 작성하십시오._**
 
 ---
 
-**Main author's Solution: Python 2**
+### 힌트
+
+> **_리스트에서 여러 요소를 삭제하려면 리스트 컴프리헨션을 사용하십시오._**
+
+---
+
+**주요 저자 솔루션: 파이썬 2**
 
 ```python
 li = [5,6,77,45,22,12,24]
-li = [x for x in li if x%2!=0]
+li = [x for x in li if x%2!=0] # x가 홀수이면 리스트에 포함
 print li
 ```
 
 ---
 
-**My Solution: Python 3**
+**내 솔루션: 파이썬 3**
 
 ```python
-def isEven(n):
+def isOdd(n): # 홀수인지 확인하는 함수 (원래 isEven이었으나, 홀수를 남기므로 isOdd로 변경)
     return n%2!=0
 
 li = [5,6,77,45,22,12,24]
-lst = list(filter(isEven,li))
+lst = list(filter(isOdd,li)) # isOdd가 True를 반환하는 요소만 필터링
 print(lst)
 ```
 
-**OR**
+**또는**
 
 ```python
 li = [5,6,77,45,22,12,24]
-lst = list(filter(lambda n:n%2!=0,li))
+lst = list(filter(lambda n:n%2!=0,li)) # 람다 함수를 사용하여 홀수만 필터링
 print(lst)
 ```
 
 ---
 
-# Question 81
+# 문제 81
 
-### **Question**
+### **문제**
 
-> **_By using list comprehension, please write a program to print the list after removing numbers which are divisible by 5 and 7 in [12,24,35,70,88,120,155]._**
-
----
-
-### Hints
-
-> **_Use list comprehension to delete a bunch of element from a list._**
+> **_리스트 컴프리헨션을 사용하여 [12,24,35,70,88,120,155]에서 5와 7로 나누어지는 숫자를 제거한 후 리스트를 인쇄하는 프로그램을 작성하십시오._**
 
 ---
 
-**Main author's Solution: Python 2**
+### 힌트
+
+> **_리스트에서 여러 요소를 삭제하려면 리스트 컴프리헨션을 사용하십시오._**
+
+---
+
+**주요 저자 솔루션: 파이썬 2**
 
 ```python
 li = [12,24,35,70,88,120,155]
+# x가 5로 나누어지지 않고 그리고 7로도 나누어지지 않으면 리스트에 포함
 li = [x for x in li if x%5!=0 and x%7!=0]
 print li
 ```
 
 ---
 
-**My Solution: Python 3**
+**내 솔루션: 파이썬 3**
 
 ```python
 li = [12,24,35,70,88,120,155]
+# x가 35 (5와 7의 최소공배수)로 나누어지지 않으면 리스트에 포함
 li = [x for x in li if x % 35!=0]
 print(li)
 ```
 
 ---
 
-# Question 82
+# 문제 82
 
-### **Question**
+### **문제**
 
-> **_By using list comprehension, please write a program to print the list after removing the 0th, 2nd, 4th,6th numbers in [12,24,35,70,88,120,155]._**
-
----
-
-### Hints
-
-> **_Use list comprehension to delete a bunch of element from a list.
-> Use enumerate() to get (index, value) tuple._**
+> **_리스트 컴프리헨션을 사용하여 [12,24,35,70,88,120,155]에서 0번째, 2번째, 4번째, 6번째 숫자를 제거한 후 리스트를 인쇄하는 프로그램을 작성하십시오._**
 
 ---
 
-**Main author's Solution: Python 2**
+### 힌트
+
+> **_리스트에서 여러 요소를 삭제하려면 리스트 컴프리헨션을 사용하십시오.
+> (인덱스, 값) 튜플을 얻으려면 enumerate()를 사용하십시오._**
+
+---
+
+**주요 저자 솔루션: 파이썬 2**
 
 ```python
-
 li = [12,24,35,70,88,120,155]
+# enumerate(li)는 (인덱스, 값) 튜플을 생성합니다.
+# 인덱스 i가 홀수이고(i%2 != 0) 6 이하인 요소 x만 리스트에 포함합니다. (즉, 1번째, 3번째, 5번째 요소)
 li = [x for (i,x) in enumerate(li) if i%2 != 0 and i <= 6]
 print li
 ```
+**참고:** 문제에서는 "0번째, 2번째, 4번째, 6번째 숫자를 제거"하라고 했으므로, 결과적으로 "1번째, 3번째, 5번째" 요소를 남기는 것이 맞습니다. 위 솔루션은 이 요구사항을 정확히 반영합니다.
 
 ---
 
-**My Solution: Python 3**
+**내 솔루션: 파이썬 3**
 
 ```python
 li = [12,24,35,70,88,120,155]
+# range(len(li))로 인덱스를 생성하고, 인덱스 i가 홀수이고 6 이하인 요소 li[i]를 리스트에 포함합니다.
 li = [li[i] for i in range(len(li)) if i%2 != 0 and i <= 6]
 print(li)
 ```
 ---
 ```python
-'''Solution by: popomaticbubble
+'''popomaticbubble 솔루션:
 '''
 orig_lst = [12,24,35,70,88,120,155]
-indices = [0, 2, 4, 6]
+indices_to_remove = [0, 2, 4, 6] # 제거할 인덱스 리스트
 
-new_list = [i for (j, i) in enumerate(orig_lst) if j not in indices]
+# enumerate를 사용하여 (인덱스 j, 값 i) 쌍을 가져옵니다.
+# 인덱스 j가 indices_to_remove 리스트에 포함되어 있지 않으면 값 i를 new_list에 추가합니다.
+new_list = [i for (j, i) in enumerate(orig_lst) if j not in indices_to_remove]
 print(new_list)
 ```
 ---
 
-# Question 83
+# 문제 83
 
-### **Question**
+### **문제**
 
-> **_By using list comprehension, please write a program to print the list after removing the 2nd - 4th numbers in [12,24,35,70,88,120,155]._**
-
----
-
-### Hints
-
-> **_Use list comprehension to delete a bunch of element from a list.
-> Use enumerate() to get (index, value) tuple._**
+> **_리스트 컴프리헨션을 사용하여 [12,24,35,70,88,120,155]에서 2번째부터 4번째까지의 숫자를 제거한 후 리스트를 인쇄하는 프로그램을 작성하십시오._** (주: 인덱스 기준으로는 1번째부터 3번째까지의 요소를 제거하는 것을 의미할 수 있습니다. "2nd - 4th numbers"가 인덱스 1, 2, 3을 의미하는 것으로 해석하겠습니다. 즉, 24, 35, 70을 제거합니다.)
 
 ---
 
-**Main author's Solution: Python 2**
+### 힌트
 
+> **_리스트에서 여러 요소를 삭제하려면 리스트 컴프리헨션을 사용하십시오.
+> (인덱스, 값) 튜플을 얻으려면 enumerate()를 사용하십시오._**
+
+---
+
+**주요 저자 솔루션: 파이썬 2**
+(주: "2nd - 4th numbers"를 인덱스 1, 2, 3으로 해석하여 해당 요소를 제거)
 ```python
-
 li = [12,24,35,70,88,120,155]
-li = [x for (i,x) in enumerate(li) if i<3 or 4<i]
+# 인덱스 i가 1보다 작거나(i<1, 즉 0번째) 또는 3보다 큰(i>3, 즉 4번째부터) 요소 x만 포함
+# 이렇게 하면 인덱스 1, 2, 3 (값 24, 35, 70)이 제거됩니다.
+# 저자 솔루션은 "if i<3 or 4<i"로 되어있는데, 이는 인덱스 3, 4를 제거합니다 (값 70, 88).
+# 문제의 "2nd - 4th numbers"를 값 24, 35, 70 (인덱스 1, 2, 3)로 해석하고 아래와 같이 수정 제안:
+# li = [x for (i,x) in enumerate(li) if i < 1 or i > 3]
+# 또는 popomaticbubble의 솔루션처럼 명시적으로 제외하는 것이 더 명확할 수 있습니다.
+# 아래는 저자의 원래 코드입니다. 인덱스 3, 4 (값 70, 88)를 제거합니다.
+li = [x for (i,x) in enumerate(li) if i<3 or 4<i] # 인덱스 3, 4를 제외 (즉, 0,1,2,5,6번째 요소 유지)
 print li
-
 ```
 ---
-**My Solution: Python 3**
-
+**내 솔루션: 파이썬 3** (저자 솔루션 로직과 동일하게 인덱스 3, 4 제거)
 ```python
-#to be written
+# 작성 예정
 li = [12,24,35,70,88,120,155]
+# 인덱스 i가 3보다 작거나(0,1,2) 또는 4보다 큰(5,6) 요소 li[i]를 리스트에 포함
 li = [li[i] for i in range(len(li)) if i < 3 or i > 4]
 print(li)
 ```
 ---
 ```python
-"""Solution by: popomaticbubble
+"""popomaticbubble 솔루션:
 """
+# "2nd - 4th numbers"를 인덱스 1, 2, 3 (값 24, 35, 70)으로 해석하여 제거합니다.
 orig_list = [12,24,35,70,88,120,155]
+# 인덱스 j가 range(1,4) (즉, 1, 2, 3)에 포함되지 않으면 요소 i를 new_list에 추가
 new_list = [i for (j, i) in enumerate(orig_list) if j not in range(1,4)]
-print(new_list)
+print(new_list) # 결과: [12, 88, 120, 155]
 ```
 ---
 ```python
-"""Solution by: saxenaharsh24
+"""saxenaharsh24 솔루션:
 """
+# 이 솔루션은 lst.index(i)를 사용하는데, 리스트에 중복된 값이 있으면 의도치 않게 동작할 수 있습니다.
+# 예를 들어 [10, 20, 10] 에서 2번째 10을 제거하려 해도 첫 번째 10의 인덱스가 사용됩니다.
+# 문제의 리스트에는 중복 값이 없으므로 여기서는 동작합니다.
+# "2nd - 4th numbers"를 인덱스 2, 3, 4 (값 35, 70, 88)로 해석하여 제거합니다.
 lst = [12,24,35,70,88,120,155]
-print([i for i in lst if lst.index(i) not in range(2,5)])
+# 요소 i의 인덱스가 range(2,5) (즉, 2, 3, 4)에 포함되지 않으면 리스트에 추가
+print([i for i in lst if lst.index(i) not in range(2,5)]) # 결과: [12, 24, 120, 155]
 ```
 ---
-# Question 84
+# 문제 84
 
-### **Question**
+### **문제**
 
-> **_By using list comprehension, please write a program generate a 3\*5\*8 3D array whose each element is 0._**
-
----
-
-### Hints
-
-> **_Use list comprehension to make an array._**
+> **_리스트 컴프리헨션을 사용하여 각 요소가 0인 3x5x8 3차원 배열을 생성하는 프로그램을 작성하십시오._**
 
 ---
 
-**Solution:**
+### 힌트
 
+> **_배열을 만들려면 리스트 컴프리헨션을 사용하십시오._**
+
+---
+
+**솔루션:** (Python 2 기준 출력, Python 3에서도 동일하게 동작)
 ```python
+# 가장 안쪽부터: 8개의 0으로 된 리스트 (열)
+# 중간: 위와 같은 리스트가 5개 있는 리스트 (행)
+# 가장 바깥쪽: 위와 같은 2차원 리스트가 3개 있는 리스트 (깊이)
 array = [[ [0 for col in range(8)] for col in range(5)] for row in range(3)]
 print array
 ```
 
 ---
 
-[**_go to previous day_**](https://github.com/darkprinx/100-plus-Python-programming-exercises-extended/blob/master/Status/Day_19.md "Day 19")
+[**_이전 날로 가기_**](https://github.com/darkprinx/100-plus-Python-programming-exercises-extended/blob/master/Status/Day_19.md "19일차")
 
-[**_go to next day_**](https://github.com/darkprinx/100-plus-Python-programming-exercises-extended/blob/master/Status/Day_21.md "Day 21")
+[**_다음 날로 가기_**](https://github.com/darkprinx/100-plus-Python-programming-exercises-extended/blob/master/Status/Day_21.md "21일차")
 
-[**_Discussion_**](https://github.com/darkprinx/100-plus-Python-programming-exercises-extended/issues/3)
+[**_토론_**](https://github.com/darkprinx/100-plus-Python-programming-exercises-extended/issues/3)
