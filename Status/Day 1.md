@@ -1,19 +1,18 @@
-# Question 1
+# 문제 1
 
-### **Question:**
+### **문제:**
 
-> **_Write a program which will find all such numbers which are divisible by 7 but are not a multiple of 5,
-> between 2000 and 3200 (both included).The numbers obtained should be printed in a comma-separated sequence on a single line._**
-
----
-
-### Hints:
-
-> **_Consider use range(#begin, #end) method._**
+> **_7로 나누어지지만 5의 배수는 아닌 2000과 3200 사이의 모든 숫자를 찾는 프로그램을 작성하십시오 (두 숫자 포함). 얻은 숫자는 한 줄에 쉼표로 구분된 시퀀스로 인쇄해야 합니다._**
 
 ---
 
-**Main author's Solution: Python 2**
+### 힌트:
+
+> **_range(#시작, #끝) 메소드 사용을 고려하십시오._**
+
+---
+
+**주요 저자 솔루션: 파이썬 2**
 
 ```python
 l=[]
@@ -26,8 +25,8 @@ print ','.join(l)
 
 ---
 
-**My Solution: Python 3**
-- **Using for loops**
+**내 솔루션: 파이썬 3**
+- **for 루프 사용**
 
 ```python
 for i in range(2000,3201):
@@ -37,27 +36,27 @@ print("\b")
 ```
 
 ---
-- **Using generators and list comprehension**
+- **제너레이터 및 리스트 컴프리헨션 사용**
 
 ```python
 print(*(i for i in range(2000, 3201) if i%7 == 0 and i%5 != 0), sep=",")
 ```
-# Question 2
+# 문제 2
 
-### **Question:**
+### **문제:**
 
-> **_Write a program which can compute the factorial of a given numbers.The results should be printed in a comma-separated sequence on a single line.Suppose the following input is supplied to the program: 8
-> Then, the output should be:40320_**
-
----
-
-### Hints:
-
-> **_In case of input data being supplied to the question, it should be assumed to be a console input._**
+> **_주어진 숫자의 계승을 계산할 수 있는 프로그램을 작성하십시오. 결과는 한 줄에 쉼표로 구분된 시퀀스로 인쇄해야 합니다. 다음과 같은 입력이 프로그램에 제공된다고 가정합니다: 8_**
+> **_그러면 출력은 다음과 같아야 합니다: 40320_**
 
 ---
 
-**Main author's Solution: Python 2**
+### 힌트:
+
+> **_질문에 입력 데이터가 제공되는 경우 콘솔 입력으로 간주해야 합니다._**
+
+---
+
+**주요 저자 솔루션: 파이썬 2**
 
 ```python
 def fact(x):
@@ -71,12 +70,12 @@ print fact(x)
 
 ---
 
-**My Solution: Python 3**
+**내 솔루션: 파이썬 3**
 
-- **Using While Loop**
+- **While 루프 사용**
   ```python
-  n = int(input()) #input() function takes input as string type
-                   #int() converts it to integer type
+  n = int(input()) # input() 함수는 입력을 문자열 유형으로 받습니다.
+                   # int()는 정수 유형으로 변환합니다.
   fact = 1
   i = 1
   while i <= n:
@@ -84,19 +83,19 @@ print fact(x)
       i = i + 1
   print(fact)
   ```
-- **Using For Loop**
+- **For 루프 사용**
   ```python
-  n = int(input()) #input() function takes input as string type
-                  #int() converts it to integer type
+  n = int(input()) # input() 함수는 입력을 문자열 유형으로 받습니다.
+                  # int()는 정수 유형으로 변환합니다.
   fact = 1
   for i in range(1,n+1):
       fact = fact * i
   print(fact)
   ```
-- **Using Lambda Function**
+- **람다 함수 사용**
 
   ```python
-  # Solution by:  harshraj22
+  # 솔루션 작성자: harshraj22
 
   n = int(input())
   def shortFact(x): return 1 if x <= 1 else x*shortFact(x-1)
@@ -105,12 +104,12 @@ print fact(x)
   ```
 ---
 ```python
-'''Solution by: minnielahoti
+'''솔루션 작성자: minnielahoti
 '''
 
 while True:
 try:
-    num = int(input("Enter a number: "))
+    num = int(input("숫자를 입력하세요: "))
     break
 except ValueError as err:
     print(err)
@@ -120,11 +119,11 @@ fact = 1
 while num:
     fact = num * fact
     num = num - 1
-print(f'the factorial of {org} is {fact}')
+print(f'{org}의 계승은 {fact}입니다.')
 ```
 ---
 ```python
-'''Soltuion by: KruthikaSR
+'''솔루션 작성자: KruthikaSR
 '''
 from functools import reduce
 
@@ -136,13 +135,13 @@ print(reduce(fun,range(1, num+1), 1))
 ```
 ---
 
-# Question 3
+# 문제 3
 
-### **Question:**
+### **문제:**
 
-> **_With a given integral number n, write a program to generate a dictionary that contains (i, i x i) such that is an integral number between 1 and n (both included). and then the program should print the dictionary.Suppose the following input is supplied to the program: 8_**
+> **_주어진 정수 n을 사용하여 (i, i x i)를 포함하는 사전을 생성하는 프로그램을 작성하십시오. 여기서 i는 1과 n (두 숫자 포함) 사이의 정수입니다. 그런 다음 프로그램은 사전을 인쇄해야 합니다. 다음과 같은 입력이 프로그램에 제공된다고 가정합니다: 8_**
 
-> **_Then, the output should be:_**
+> **_그러면 출력은 다음과 같아야 합니다:_**
 
 ```
 {1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64}
@@ -150,13 +149,13 @@ print(reduce(fun,range(1, num+1), 1))
 
 ---
 
-### Hints:
+### 힌트:
 
-> **_In case of input data being supplied to the question, it should be assumed to be a console input.Consider use dict()_**
+> **_질문에 입력 데이터가 제공되는 경우 콘솔 입력으로 간주해야 합니다. dict() 사용을 고려하십시오._**
 
 ---
 
-**Main author's Solution: Python 2**
+**주요 저자 솔루션: 파이썬 2**
 
 ```python
 n = int(raw_input())
@@ -166,9 +165,9 @@ for i in range(1,n+1):
 print d
 ```
 
-**My Solution: Python 3:**
+**내 솔루션: 파이썬 3:**
 
-- **Using for loop**
+- **for 루프 사용**
 
 ```python
 n = int(input())
@@ -178,7 +177,7 @@ for i in range (1,n+1):
 print(ans)
 ```
 
-- **Using dictionary comprehension**
+- **사전 컴프리헨션 사용**
 
 ```python
 n = int(input())
@@ -187,12 +186,12 @@ print(ans)
 ```
 ---
 ```python
-'''Solution by: minnielahoti
-   Corrected by: TheNobleKnight 
+'''솔루션 작성자: minnielahoti
+   수정자: TheNobleKnight
 '''
 
 try:
-    num = int(input("Enter a number: "))
+    num = int(input("숫자를 입력하세요: "))
 except ValueError as err:
     print(err)
 
@@ -206,18 +205,18 @@ print(dictio)
 ```
 ---
 ```python
-'''Solution by: yurbika
-   Corrected by: developer-47
+'''솔루션 작성자: yurbika
+   수정자: developer-47
 '''
 
-num = int(input("Number: "))
+num = int(input("숫자: "))
 print(dict(enumerate([i*i for i in range(1, num+1)], 1)))
 ```
 ---
-## Conclusion
+## 결론
 
-**_These was the solved problems of day 1. The above problems are very easy for the basic syntex learners.I have shown some easy ways of coding in my solutions. Lets see how to face and attack new problems in the next day._**
+**_이것은 1일차에 해결된 문제들입니다. 위의 문제들은 기본 구문 학습자에게 매우 쉽습니다. 제 솔루션에서 몇 가지 쉬운 코딩 방법을 보여주었습니다. 다음 날 새로운 문제에 어떻게 대처하고 공격하는지 봅시다._**
 
-[**_go to next day_**](https://github.com/darkprinx/100-plus-Python-programming-exercises-extended/blob/master/Status/Day%202.md "Next Day")
+[**_다음 날로 가기_**](https://github.com/darkprinx/100-plus-Python-programming-exercises-extended/blob/master/Status/Day%202.md "다음 날")
 
-[**_Discussion_**](https://github.com/darkprinx/100-plus-Python-programming-exercises-extended/issues/3)
+[**_토론_**](https://github.com/darkprinx/100-plus-Python-programming-exercises-extended/issues/3)

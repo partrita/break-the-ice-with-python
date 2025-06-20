@@ -1,14 +1,14 @@
-# Question 16
+# 문제 16
 
-### **Question:**
+### **문제:**
 
-> **_Use a list comprehension to square each odd number in a list. The list is input by a sequence of comma-separated numbers._** >**_Suppose the following input is supplied to the program:_**
+> **_리스트 컴프리헨션을 사용하여 리스트의 각 홀수를 제곱하십시오. 리스트는 쉼표로 구분된 숫자 시퀀스로 입력됩니다._** >**_다음과 같은 입력이 프로그램에 제공된다고 가정합니다:_**
 
 ```
 1,2,3,4,5,6,7,8,9
 ```
 
-> **_Then, the output should be:_**
+> **_그러면 출력은 다음과 같아야 합니다:_**
 
 ```
 1,9,25,49,81
@@ -16,21 +16,21 @@
 
 ---
 
-### Hints:
+### 힌트:
 
-> **_In case of input data being supplied to the question, it should be assumed to be a console input._**
+> **_질문에 입력 데이터가 제공되는 경우 콘솔 입력으로 간주해야 합니다._**
 
 ---
 
-**Main author's Solution: Python 2**
+**주요 저자 솔루션: 파이썬 2**
 
 ```python
-## The solution by the author is incorrect.Thus it's not included here.
+## 저자의 솔루션이 정확하지 않아 여기에 포함하지 않았습니다.
 ```
 
 ---
 
-**My Solution: Python 3**
+**내 솔루션: 파이썬 3**
 
 ```python
 lst = [str(int(i)**2) for i in input().split(',') if int(i) % 2]
@@ -40,51 +40,51 @@ print(",".join(lst))
 ---
 
 ```python
-'''Solution by: shagun'''
-square odd no
+'''솔루션 작성자: shagun'''
+# 홀수 제곱
 
-lst = input().split(',')     # splits in comma position and set up in list
+lst = input().split(',')     # 쉼표 위치에서 분할하고 리스트에 설정합니다.
 
 seq = []
-lst = [int(i) for i in lst]  # converts string to integer
+lst = [int(i) for i in lst]  # 문자열을 정수로 변환합니다.
 for i in lst:
         if i%2 != 0:
                 i = i*i
                 seq.append(i)
 
 
-seq = [str(i) for i in seq]   # All the integers are converted to string to be able to apply join operation
+seq = [str(i) for i in seq]   # join 연산을 적용할 수 있도록 모든 정수를 문자열로 변환합니다.
 print(",".join(seq))
 ```
 
 
 ```python
-'''Solution by: Jack'''
+'''솔루션 작성자: Jack'''
 seq = input().split(',') 
 lst = [int(i) for i in seq]
-def flt(i):                                           #Define a filter function
+def flt(i):                                           # 필터 함수 정의
     return i % 2 != 0
 result_l = [str(i * i) for i in filter(flt,lst)]      
 print(",".join(result_l))
 ```
 ---
 
-**_There were a mistake in the the test case and the solution's whice were notified and fixed with the help of @dwedigital. My warm thanks to him._**
+**_테스트 케이스와 솔루션에 실수가 있었는데 @dwedigital의 도움으로 알림을 받고 수정했습니다. 그에게 진심으로 감사합니다._**
 
-# Question 17
+# 문제 17
 
-### **Question:**
+### **문제:**
 
-> **_Write a program that computes the net amount of a bank account based a transaction log from console input. The transaction log format is shown as following:_**
+> **_콘솔 입력에서 트랜잭션 로그를 기반으로 은행 계좌의 순 금액을 계산하는 프로그램을 작성하십시오. 트랜잭션 로그 형식은 다음과 같습니다:_**
 
 ```
 D 100
 W 200
 ```
 
-- D means deposit while W means withdrawal.
+- D는 입금을 의미하고 W는 출금을 의미합니다.
 
-> **_Suppose the following input is supplied to the program:_**
+> **_다음과 같은 입력이 프로그램에 제공된다고 가정합니다:_**
 
 ```
 D 300
@@ -93,7 +93,7 @@ W 200
 D 100
 ```
 
-> **_Then, the output should be:_**
+> **_그러면 출력은 다음과 같아야 합니다:_**
 
 ```
 500
@@ -101,13 +101,13 @@ D 100
 
 ---
 
-### Hints:
+### 힌트:
 
-> **_In case of input data being supplied to the question, it should be assumed to be a console input._**
+> **_질문에 입력 데이터가 제공되는 경우 콘솔 입력으로 간주해야 합니다._**
 
 ---
 
-**Main author's Solution: Python 2**
+**주요 저자 솔루션: 파이썬 2**
 
 ```python
 import sys
@@ -130,15 +130,15 @@ print netAmount
 
 ---
 
-**My Solution: Python 3**
+**내 솔루션: 파이썬 3**
 
 ```python
 total = 0
 while True:
     s = input().split()
-    if not s:            # break if the string is empty
+    if not s:            # 문자열이 비어 있으면 중단합니다.
         break
-    cm,num = map(str,s)    # two inputs are distributed in cm and num in string data type
+    cm,num = map(str,s)    # 두 개의 입력이 문자열 데이터 유형으로 cm과 num에 분배됩니다.
 
     if cm=='D':
         total+=int(num)
@@ -151,7 +151,7 @@ print(total)
 ---
 
 ```python
-'''Solution by: leonedott'''
+'''솔루션 작성자: leonedott'''
 
 lst = []
 while True:
@@ -172,16 +172,16 @@ print(balance)
 ---
 
 ```python
-'''Solution by: AlexanderSro'''
+'''솔루션 작성자: AlexanderSro'''
 
 account = 0
 while True:
-    action = input("Deposit/Whitdrow/Balance/Quit? D/W/B/Q: ").lower()
+    action = input("입금/출금/잔액/종료? D/W/B/Q: ").lower()
     if action == "d":
-        deposit = input("How much would you like to deposit? ")
+        deposit = input("얼마나 입금하시겠습니까? ")
         account = account + int(deposit)
     elif action == "w":
-        withdrow = input("How much would you like to withdrow? ")
+        withdrow = input("얼마나 출금하시겠습니까? ")
         account = account - int(withdrow)
     elif action == "b":
         print(account)
@@ -192,12 +192,12 @@ while True:
 ---
 
 ```python
-'''Solution by: ShalomPrinz
+'''솔루션 작성자: ShalomPrinz
 '''
 lines = []
 while True:
 	loopInput = input()
-	if loopInput == "done":
+	if loopInput == "done": # "done" 입력 시 종료
 		break
 	else:
 		lines.append(loopInput)
@@ -207,7 +207,7 @@ print(sum(lst))
 ```
 ---
 ```python
-'''Solution by: popomaticbubble 
+'''솔루션 작성자: popomaticbubble
 '''
 transactions = []
 
@@ -222,11 +222,11 @@ while True:
 		
 transactions = (int(i) for i in transactions)
 balance = sum(transactions)
-print(f"Balance is {balance}")
+print(f"잔액은 {balance}입니다.")
 ```
 ---
 ```python
-'''Solution by: ChichiLovesDonkeys
+'''솔루션 작성자: ChichiLovesDonkeys
 '''
 
 money = 0
@@ -236,14 +236,14 @@ while 1:
         money = money + int(trans[1])
     elif trans[0] == 'W':
         money = money - int(trans[1])
-    elif input() == '':
+    elif input() == '': # 빈 입력 시 종료
         break
-    print(f'Your current balance is: {money}')
+    print(f'현재 잔액은: {money}입니다.')
 ```
 ---
 
-[**_go to previous day_**](https://github.com/darkprinx/100-plus-Python-programming-exercises-extended/blob/master/Status/Day%204.md "Day 4")
+[**_이전 날로 가기_**](https://github.com/darkprinx/100-plus-Python-programming-exercises-extended/blob/master/Status/Day%204.md "4일차")
 
-[**_go to next day_**](https://github.com/darkprinx/100-plus-Python-programming-exercises-extended/blob/master/Status/Day%206.md "Day 6")
+[**_다음 날로 가기_**](https://github.com/darkprinx/100-plus-Python-programming-exercises-extended/blob/master/Status/Day%206.md "6일차")
 
-[**_Discussion_**](https://github.com/darkprinx/100-plus-Python-programming-exercises-extended/issues/3)
+[**_토론_**](https://github.com/darkprinx/100-plus-Python-programming-exercises-extended/issues/3)

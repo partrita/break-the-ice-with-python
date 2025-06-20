@@ -1,27 +1,27 @@
-# Question 4
+# 문제 4
 
-### **Question:**
+### **문제:**
 
-> **_Write a program which accepts a sequence of comma-separated numbers from console and generate a list and a tuple which contains every number.Suppose the following input is supplied to the program:_**
+> **_콘솔에서 쉼표로 구분된 숫자 시퀀스를 입력받아 모든 숫자를 포함하는 리스트와 튜플을 생성하는 프로그램을 작성하십시오. 다음과 같은 입력이 프로그램에 제공된다고 가정합니다:_**
 
 ```
 34,67,55,33,12,98
 ```
 
-> **_Then, the output should be:_**
+> **_그러면 출력은 다음과 같아야 합니다:_**
 
 ```
 ['34', '67', '55', '33', '12', '98']
 ('34', '67', '55', '33', '12', '98')
 ```
 
-### Hints:
+### 힌트:
 
-> **_In case of input data being supplied to the question, it should be assumed to be a console input.tuple() method can convert list to tuple_**
+> **_질문에 입력 데이터가 제공되는 경우 콘솔 입력으로 간주해야 합니다. tuple() 메소드는 리스트를 튜플로 변환할 수 있습니다._**
 
 ---
 
-**Main author's Solution: Python 2**
+**주요 저자 솔루션: 파이썬 2**
 
 ```python
 values = raw_input()
@@ -33,44 +33,44 @@ print t
 
 ---
 
-**My Solution: Python 3**
+**내 솔루션: 파이썬 3**
 
 ```python
-lst = input().split(',')  # the input is being taken as string and as it is string it has a built in
-                          # method name split. ',' inside split function does split where it finds any ','
-                          # and save the input as list in lst variable
+lst = input().split(',')  # 입력은 문자열로 받아지고 문자열이므로 내장 메소드 split을 가집니다.
+                          # split 함수 안의 ','는 ','를 찾을 때마다 분할하고
+                          # 입력을 lst 변수에 리스트로 저장합니다.
 
-tpl = tuple(lst)          # tuple method converts list to tuple
+tpl = tuple(lst)          # tuple 메소드는 리스트를 튜플로 변환합니다.
 
 print(lst)
 print(tpl)
 ```
 ---
 ```python 
-'''solution by: minnielahoti
+'''솔루션 작성자: minnielahoti
 '''
-print(tuple(input("Enter a series of numbers separated by a comma :").split(',')))
+print(tuple(input("쉼표로 구분된 숫자 시리즈를 입력하세요:").split(',')))
 ```
 ---
 
-# Question 5
+# 문제 5
 
-### **Question:**
+### **문제:**
 
-> **_Define a class which has at least two methods:_**
+> **_최소 두 개의 메소드를 가진 클래스를 정의하십시오:_**
 >
-> - **_getString: to get a string from console input_**
-> - **_printString: to print the string in upper case._**
+> - **_getString: 콘솔 입력에서 문자열을 가져옵니다._**
+> - **_printString: 문자열을 대문자로 인쇄합니다._**
 
-> **_Also please include simple test function to test the class methods._**
+> **_또한 클래스 메소드를 테스트하기 위한 간단한 테스트 함수를 포함하십시오._**
 
-### Hints:
+### 힌트:
 
-> **_Use **init** method to construct some parameters_**
+> **_**init** 메소드를 사용하여 일부 매개변수를 생성하십시오._**
 
 ---
 
-**Main author's Solution: Python 2**
+**주요 저자 솔루션: 파이썬 2**
 
 ```python
 class InputOutString(object):
@@ -90,7 +90,7 @@ str_obj.print_string()
 
 ---
 
-**My Solution: Python 3**
+**내 솔루션: 파이썬 3**
 
 ```python
 class IOstring():
@@ -107,26 +107,26 @@ xx.print_string()
 
 ---
 
-# Question 6
+# 문제 6
 
-### **Question:**
+### **문제:**
 
-> **_Write a program that calculates and prints the value according to the given formula:_**
+> **_주어진 공식에 따라 값을 계산하고 인쇄하는 프로그램을 작성하십시오:_**
 
-> **_Q = Square root of [(2 _ C _ D)/H]_**
+> **_Q = [(2 * C * D)/H]의 제곱근_**
 
-> **_Following are the fixed values of C and H:_**
+> **_다음은 C와 H의 고정 값입니다:_**
 
-> **_C is 50. H is 30._**
+> **_C는 50입니다. H는 30입니다._**
 
-> **_D is the variable whose values should be input to your program in a comma-separated sequence.For example
-> Let us assume the following comma separated input sequence is given to the program:_**
+> **_D는 쉼표로 구분된 시퀀스로 프로그램에 입력해야 하는 변수입니다. 예를 들어_**
+> **_다음과 같은 쉼표로 구분된 입력 시퀀스가 프로그램에 제공된다고 가정합니다:_**
 
 ```
 100,150,180
 ```
 
-> **_The output of the program should be:_**
+> **_프로그램의 출력은 다음과 같아야 합니다:_**
 
 ```
 18,22,24
@@ -134,13 +134,13 @@ xx.print_string()
 
 ---
 
-### Hints:
+### 힌트:
 
-> **_If the output received is in decimal form, it should be rounded off to its nearest value (for example, if the output received is 26.0, it should be printed as 26).In case of input data being supplied to the question, it should be assumed to be a console input._**
+> **_받은 출력이 십진수 형태인 경우 가장 가까운 값으로 반올림해야 합니다 (예: 받은 출력이 26.0이면 26으로 인쇄해야 함). 질문에 입력 데이터가 제공되는 경우 콘솔 입력으로 간주해야 합니다._**
 
 ---
 
-**Main author's Solution: Python 2**
+**주요 저자 솔루션: 파이썬 2**
 
 ```python
 import math
@@ -156,27 +156,27 @@ print ','.join(value)
 
 ---
 
-**My Solution: Python 3**
+**내 솔루션: 파이썬 3**
 
 ```python
-from math import sqrt # import specific functions as importing all using *
-                      # is bad practice
+from math import sqrt # *를 사용하여 모두 가져오는 것은 좋지 않으므로 특정 함수만 가져옵니다.
+                      # 나쁜 습관입니다.
 
 C,H = 50,30
 
 def calc(D):
     return sqrt((2*C*D)/H)
 
-D = [int(i) for i in input().split(',')] # splits in comma position and set up in list
-D = [int(i) for i in D]   # converts string to integer
-D = [calc(i) for i in D]  # returns floating value by calc method for every item in D
-D = [round(i) for i in D] # All the floating values are rounded
-D = [str(i) for i in D]   # All the integers are converted to string to be able to apply join operation
+D = [int(i) for i in input().split(',')] # 쉼표 위치에서 분할하고 리스트에 설정합니다.
+D = [int(i) for i in D]   # 문자열을 정수로 변환합니다.
+D = [calc(i) for i in D]  # D의 모든 항목에 대해 calc 메소드로 부동 소수점 값을 반환합니다.
+D = [round(i) for i in D] # 모든 부동 소수점 값을 반올림합니다.
+D = [str(i) for i in D]   # join 연산을 적용할 수 있도록 모든 정수를 문자열로 변환합니다.
 
 print(",".join(D))
 ```
 
-**OR**
+**또는**
 
 ```python
 from math import sqrt
@@ -186,12 +186,12 @@ C,H = 50,30
 def calc(D):
     return sqrt((2*C*D)/H)
 
-D = input().split(',')                     # splits in comma position and set up in list
-D = [str(round(calc(int(i)))) for i in D]  # using comprehension method. It works in order of the previous code
+D = input().split(',')                     # 쉼표 위치에서 분할하고 리스트에 설정합니다.
+D = [str(round(calc(int(i)))) for i in D]  # 컴프리헨션 메소드를 사용합니다. 이전 코드의 순서대로 작동합니다.
 print(",".join(D))
 ```
 
-**OR**
+**또는**
 
 ```python
 from math import sqrt
@@ -203,10 +203,10 @@ def calc(D):
 print(",".join([str(int(calc(int(i)))) for i in input().split(',')]))
 ```
 
-**OR**
+**또는**
 
 ```python
-from math import * # importing all math functions
+from math import * # 모든 수학 함수 가져오기
 C,H = 50,30
 
 def calc(D):
@@ -214,12 +214,12 @@ def calc(D):
     return str(int(sqrt((2*C*D)/H)))
 
 D = input().split(',')
-D = list(map(calc,D))   # applying calc function on D and storing as a list
+D = list(map(calc,D))   # D에 calc 함수를 적용하고 리스트로 저장합니다.
 print(",".join(D))
 ```
 ---
 ```python
-'''Solution by: parian5
+'''솔루션 작성자: parian5
 '''
 from math import sqrt
 C, H = 50, 30
@@ -229,7 +229,7 @@ print(*(round(sqrt(2*C*int(D)/H)) for D in mylist), sep=",")
 ---
 ```python
 
-'''Solution by: saxenaharsh24
+'''솔루션 작성자: saxenaharsh24
 '''
 
 my_list = [int(x) for x in input('').split(',')]
@@ -243,15 +243,15 @@ print(','.join(map(str, x)))
 ```
 ---
 
-# Question 7
+# 문제 7
 
-### **Question:**
+### **문제:**
 
-> **_Write a program which takes 2 digits, X,Y as input and generates a 2-dimensional array. The element value in the i-th row and j-th column of the array should be i _ j.\***
+> **_2개의 숫자 X, Y를 입력받아 2차원 배열을 생성하는 프로그램을 작성하십시오. 배열의 i번째 행과 j번째 열의 요소 값은 i * j여야 합니다.\***
 
-> **_Note: i=0,1.., X-1; j=0,1,¡­Y-1. Suppose the following inputs are given to the program: 3,5_**
+> **_참고: i=0,1.., X-1; j=0,1,¡­Y-1. 다음과 같은 입력이 프로그램에 제공된다고 가정합니다: 3,5_**
 
-> **_Then, the output of the program should be:_**
+> **_그러면 프로그램의 출력은 다음과 같아야 합니다:_**
 
 ```
 [[0, 0, 0, 0, 0], [0, 1, 2, 3, 4], [0, 2, 4, 6, 8]]
@@ -259,13 +259,13 @@ print(','.join(map(str, x)))
 
 ---
 
-### Hints:
+### 힌트:
 
-> **_Note: In case of input data being supplied to the question, it should be assumed to be a console input in a comma-separated form._**
+> **_질문에 입력 데이터가 제공되는 경우 쉼표로 구분된 형태로 콘솔 입력으로 간주해야 합니다._**
 
 ---
 
-**Main author's Solution: Python 2**
+**주요 저자 솔루션: 파이썬 2**
 
 ```python
 input_str = raw_input()
@@ -283,7 +283,7 @@ print multilist
 
 ---
 
-**My Solution: Python 3**
+**내 솔루션: 파이썬 3**
 
 ```python
 x,y = map(int,input().split(','))
@@ -298,7 +298,7 @@ for i in range(x):
 print(lst)
 ```
 
-**OR**
+**또는**
 
 ```python
 x,y = map(int,input().split(','))
@@ -308,19 +308,19 @@ print(lst)
 
 ---
 
-# Question 8
+# 문제 8
 
-### **Question:**
+### **문제:**
 
-> **_Write a program that accepts a comma separated sequence of words as input and prints the words in a comma-separated sequence after sorting them alphabetically._**
+> **_쉼표로 구분된 단어 시퀀스를 입력받아 알파벳순으로 정렬한 후 쉼표로 구분된 시퀀스로 단어를 인쇄하는 프로그램을 작성하십시오._**
 
-> **_Suppose the following input is supplied to the program:_**
+> **_다음과 같은 입력이 프로그램에 제공된다고 가정합니다:_**
 
 ```
 without,hello,bag,world
 ```
 
-> **_Then, the output should be:_**
+> **_그러면 출력은 다음과 같아야 합니다:_**
 
 ```
 bag,hello,without,world
@@ -328,13 +328,13 @@ bag,hello,without,world
 
 ---
 
-### Hints:
+### 힌트:
 
-> **_In case of input data being supplied to the question, it should be assumed to be a console input._**
+> **_질문에 입력 데이터가 제공되는 경우 콘솔 입력으로 간주해야 합니다._**
 
 ---
 
-**Main author's Solution: Python 2**
+**주요 저자 솔루션: 파이썬 2**
 
 ```python
 items = [x for x in raw_input().split(',')]
@@ -344,7 +344,7 @@ print ','.join(items)
 
 ---
 
-**My Solution: Python 3**
+**내 솔루션: 파이썬 3**
 
 ```python
 lst = input().split(',')
@@ -353,32 +353,32 @@ print(",".join(lst))
 ```
 ---
 ```python
-'''Solution by Poonam-glitch
+'''솔루션 작성자: Poonam-glitch
 '''
 def my_func(e):
     return e[0]
 
-my_list = input('Enter a comma separated string: ').split(",")
+my_list = input('쉼표로 구분된 문자열을 입력하세요: ').split(",")
 my_list.sort(key=my_func)
 print(",".join(my_list))
 ```
 
 ---
 
-# Question 9
+# 문제 9
 
-### **Question:**
+### **문제:**
 
-> **_Write a program that accepts sequence of lines as input and prints the lines after making all characters in the sentence capitalized._**
+> **_여러 줄의 시퀀스를 입력받아 문장의 모든 문자를 대문자로 만든 후 줄을 인쇄하는 프로그램을 작성하십시오._**
 
-> **_Suppose the following input is supplied to the program:_**
+> **_다음과 같은 입력이 프로그램에 제공된다고 가정합니다:_**
 
 ```
 Hello world
 Practice makes perfect
 ```
 
-> **_Then, the output should be:_**
+> **_그러면 출력은 다음과 같아야 합니다:_**
 
 ```
 HELLO WORLD
@@ -387,13 +387,13 @@ PRACTICE MAKES PERFECT
 
 ---
 
-### Hints:
+### 힌트:
 
-> **_In case of input data being supplied to the question, it should be assumed to be a console input._**
+> **_질문에 입력 데이터가 제공되는 경우 콘솔 입력으로 간주해야 합니다._**
 
 ---
 
-**Main author's Solution: Python 2**
+**주요 저자 솔루션: 파이썬 2**
 
 ```python
 lines = []
@@ -410,7 +410,7 @@ for sentence in lines:
 
 ---
 
-**My Solution: Python 3**
+**내 솔루션: 파이썬 3**
 
 ```python
 lst = []
@@ -425,7 +425,7 @@ for line in lst:
     print(line)
 ```
 
-**OR**
+**또는**
 
 ```python
 def user_input():
@@ -440,7 +440,7 @@ for line in map(str.upper, user_input()):
 ```
 
 ```python
-'''Soltuion by: hajimalung baba
+'''솔루션 작성자: hajimalung baba
 '''
 def inputs():
     while True:
@@ -454,8 +454,8 @@ print(*(line.upper() for line in inputs()),sep='\n')
 
 ---
 
-[**_go to previous day_**](https://github.com/darkprinx/100-plus-Python-programming-exercises-extended/blob/master/Status/Day%201.md "Day 1")
+[**_이전 날로 가기_**](https://github.com/darkprinx/100-plus-Python-programming-exercises-extended/blob/master/Status/Day%201.md "1일차")
 
-[**_go to next day_**](https://github.com/darkprinx/100-plus-Python-programming-exercises-extended/blob/master/Status/Day%203.md "Day 3")
+[**_다음 날로 가기_**](https://github.com/darkprinx/100-plus-Python-programming-exercises-extended/blob/master/Status/Day%203.md "3일차")
 
-[**_Discussion_**](https://github.com/darkprinx/100-plus-Python-programming-exercises-extended/issues/3)
+[**_토론_**](https://github.com/darkprinx/100-plus-Python-programming-exercises-extended/issues/3)
