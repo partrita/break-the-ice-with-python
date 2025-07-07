@@ -1,4 +1,4 @@
-# 파이썬으로 아이스 브레이킹하기
+# 파이썬과 익숙해지기
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/partrita/break-the-ice-with-python/HEAD)
 
@@ -12,7 +12,7 @@
 
 > 모든 Day_.md 파일의 서식을 정리하고, 임의의 오류를 수정하고, PEP8 규칙에 맞게 일부 변수 이름을 수정하고, [jupyter](https://github.com/darkprinx/100-plus-Python-programming-exercises-extended/tree/master/notebooks) 노트북의 전체 새 폴더(24일 전체)를 추가하여 저장소에 기여한 [apurvmishra99](https://github.com/apurvmishra99)에게 큰 감사를 드립니다.
 
-----------------
+---
 
 # 100가지 이상의 도전적인 파이썬 프로그래밍 연습 문제
 
@@ -74,6 +74,13 @@
 
 * **[24일차](https://github.com/darkprinx/100-plus-Python-programming-exercises-extended/blob/master/Status/Day_24.md "24일차 현황")**- ***질문 100-103***
 
+# PDF 파일 만들기
+
+```bash
+docker run --rm -v .:/book hollowman6/mdbook-pdf
+```
+
+PDF successfully generated at: `/book/book/pdf/output.pdf`
 
 ---
 

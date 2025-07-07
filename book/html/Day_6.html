@@ -1,0 +1,436 @@
+<!DOCTYPE HTML>
+<html lang="ko" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Day6 - 파이썬과 익숙해지기</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">파이썬과 익숙해지기</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="문제-18"><a class="header" href="#문제-18">문제 18</a></h1>
+<h3 id="문제"><a class="header" href="#문제"><strong>문제:</strong></a></h3>
+<blockquote>
+<p><strong><em>한 웹사이트에서 사용자에게 등록을 위해 사용자 이름과 비밀번호를 입력하도록 요구합니다. 사용자가 입력한 비밀번호의 유효성을 확인하는 프로그램을 작성하십시오.</em></strong></p>
+</blockquote>
+<blockquote>
+<p><strong><em>다음은 비밀번호 확인 기준입니다:</em></strong></p>
+</blockquote>
+<ul>
+<li><strong><em>[a-z] 사이의 문자 최소 1개</em></strong></li>
+<li><strong><em>[0-9] 사이의 숫자 최소 1개</em></strong></li>
+<li><strong><em>[A-Z] 사이의 문자 최소 1개</em></strong></li>
+<li><strong><em>[$#@] 중 문자 최소 1개</em></strong></li>
+<li><strong><em>거래 비밀번호 최소 길이: 6</em></strong></li>
+<li><strong><em>거래 비밀번호 최대 길이: 12</em></strong></li>
+</ul>
+<blockquote>
+<p><strong><em>프로그램은 쉼표로 구분된 비밀번호 시퀀스를 입력받아 위의 기준에 따라 확인해야 합니다. 기준을 충족하는 비밀번호는 각각 쉼표로 구분하여 인쇄해야 합니다.</em></strong></p>
+</blockquote>
+<blockquote>
+<p><strong><em>예시</em></strong></p>
+</blockquote>
+<blockquote>
+<p><strong><em>다음 비밀번호가 프로그램에 입력으로 주어지면:</em></strong></p>
+</blockquote>
+<pre><code>ABd1234@1,a F1#,2w3E*,2We3345
+</code></pre>
+<blockquote>
+<p><strong><em>그러면 프로그램의 출력은 다음과 같아야 합니다:</em></strong></p>
+</blockquote>
+<pre><code>ABd1234@1
+</code></pre>
+<hr />
+<h3 id="힌트"><a class="header" href="#힌트">힌트:</a></h3>
+<blockquote>
+<p><strong><em>질문에 입력 데이터가 제공되는 경우 콘솔 입력으로 간주해야 합니다.</em></strong></p>
+</blockquote>
+<hr />
+<p><strong>주요 저자 솔루션: 파이썬 2</strong></p>
+<pre><code class="language-python">import re
+value = []
+items = [x for x in raw_input().split(',')]
+for p in items:
+    if len(p) &lt; 6 or len(p) &gt; 12:
+        continue
+    else:
+        pass
+    if not re.search("[a-z]",p):
+        continue
+    elif not re.search("[0-9]",p):
+        continue
+    elif not re.search("[A-Z]",p):
+        continue
+    elif not re.search("[$#@]",p):
+        continue
+    elif re.search("\s",p):
+        continue
+    else:
+        pass
+    value.append(p)
+print ",".join(value)
+</code></pre>
+<hr />
+<p><strong>내 솔루션: 파이썬 3</strong></p>
+<pre><code class="language-python">def is_low(x):                  # 문자열에 소문자가 있으면 True를 반환합니다.
+    for i in x:
+        if 'a'&lt;=i and i&lt;='z':
+            return True
+    return  False
+
+def is_up(x):                   # 문자열에 대문자가 있으면 True를 반환합니다.
+    for i in x:
+        if 'A'&lt;= i and i&lt;='Z':
+            return True
+    return  False
+
+def is_num(x):                  # 문자열에 숫자가 있으면 True를 반환합니다.
+    for i in x:
+        if '0'&lt;=i and i&lt;='9':
+            return True
+    return  False
+
+def is_other(x):                # 문자열에 "$#@" 중 하나라도 있으면 True를 반환합니다.
+    for i in x:
+        if i=='$' or i=='#' or i=='@':
+            return True
+    return False
+
+s = input().split(',')
+lst = []
+
+for i in s:
+    length = len(i)
+    if 6 &lt;= length and length &lt;= 12 and is_low(i) and is_up(i) and is_num(i) and is_other(i):   # 모든 요구 사항이 충족되었는지 확인합니다.
+        lst.append(i)
+
+print(",".join(lst))
+</code></pre>
+<p><strong>또는</strong></p>
+<pre><code class="language-python">def check(x):
+    cnt = (6&lt;=len(x) and len(x)&lt;=12) # cnt는 초기에 조건 (6&lt;=len(x) and len(x)&lt;=12)이 참이면 1, 거짓이면 0이 됩니다.
+    for i in x:
+        if i.isupper():
+            cnt+=1 # 대문자가 있으면 cnt를 1 증가시킵니다.
+            break
+    for i in x:
+        if i.islower():
+            cnt+=1 # 소문자가 있으면 cnt를 1 증가시킵니다.
+            break
+    for i in x:
+        if i.isnumeric():
+            cnt+=1 # 숫자가 있으면 cnt를 1 증가시킵니다.
+            break
+    for i in x:
+        if i=='@' or i=='#'or i=='$':
+            cnt+=1 # 특수문자가 있으면 cnt를 1 증가시킵니다.
+            break
+    return cnt == 5               # 총 5가지 조건이 모두 충족되면 True를 반환합니다. (길이 조건 + 4가지 문자 유형 조건)
+
+s = input().split(',')
+lst = filter(check,s)             # filter 함수는 check() 함수에 의해 True를 반환하는 s의 단어를 선택합니다.
+print(",".join(lst))
+</code></pre>
+<p><strong>또는</strong></p>
+<pre><code class="language-python">import  re
+
+s = input().split(',')
+lst = []
+
+for i in s:
+    cnt = 0
+    cnt+=(6&lt;=len(i) and len(i)&lt;=12)
+    cnt+=bool(re.search("[a-z]",i))      # 여기서 re 모듈에는 re.search() 함수가 포함되어 있으며, 이 함수는 패턴 문자열 i가 [a-z]/[A-Z]/[0-9]/[@#$] 문자 중 하나와 일치하는 위치의 객체 정보를 반환합니다.
+    cnt+=bool(re.search("[A-Z]",i))      # 일치하는 항목이 하나도 없으면 NONE을 반환하며, 이는 부울 표현식에서 False로 변환됩니다. 일치하는 항목이 있으면 True입니다.
+    cnt+=bool(re.search("[0-9]",i))
+    cnt+=bool(re.search("[@#$]",i))
+    if cnt == 5:
+        lst.append(i)
+
+print(",".join(lst))
+</code></pre>
+<hr />
+<pre><code class="language-python">'''솔루션 작성자: pratikb0501
+'''
+import re
+a = input('비밀번호 입력: ').split(',')
+pass_pattern = re.compile(r"^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[$#@]).{6,12}$") # 정규 표현식: 숫자, 소문자, 대문자, 특수문자($#@)를 각각 하나 이상 포함하고 길이는 6~12자여야 함
+for i in a:
+    if pass_pattern.fullmatch(i): # fullmatch는 전체 문자열이 패턴과 일치하는지 확인
+        print(i)
+</code></pre>
+<p><strong>또는</strong></p>
+<pre><code class="language-python">import re
+def multiple (patterns, string):
+  for i in patterns:
+    if not re.search(i, string): # 각 패턴에 대해 문자열 검색
+      return False
+  
+  if 6 &lt;= len(string) &lt;= 12: # 길이 확인
+    return True
+  else:
+    return False
+x = str(input("비밀번호 입력: "))
+patterns = [r"[a-z]", r"[A-Z]", r"[0-9]", r"[$|#|@]"] # 패턴 리스트
+print(multiple(patterns, x))
+</code></pre>
+<hr />
+<h1 id="문제-19"><a class="header" href="#문제-19">문제 19</a></h1>
+<h3 id="문제-1"><a class="header" href="#문제-1"><strong>문제:</strong></a></h3>
+<blockquote>
+<p><strong><em>(이름, 나이, 점수) 튜플을 오름차순으로 정렬하는 프로그램을 작성해야 합니다. 여기서 이름은 문자열이고 나이와 점수는 숫자입니다. 튜플은 콘솔을 통해 입력됩니다. 정렬 기준은 다음과 같습니다:</em></strong></p>
+</blockquote>
+<ul>
+<li><strong><em>1: 이름 기준 정렬</em></strong></li>
+<li><strong><em>2: 그런 다음 나이 기준 정렬</em></strong></li>
+<li><strong><em>3: 그런 다음 점수 기준 정렬</em></strong></li>
+</ul>
+<blockquote>
+<p><strong><em>우선순위는 이름 &gt; 나이 &gt; 점수입니다.</em></strong></p>
+</blockquote>
+<blockquote>
+<p><strong><em>다음 튜플이 프로그램에 입력으로 주어지면:</em></strong></p>
+</blockquote>
+<pre><code>Tom,19,80
+John,20,90
+Jony,17,91
+Jony,17,93
+Json,21,85
+</code></pre>
+<blockquote>
+<p><strong><em>그러면 프로그램의 출력은 다음과 같아야 합니다:</em></strong></p>
+</blockquote>
+<pre><code>[('John', '20', '90'), ('Jony', '17', '91'), ('Jony', '17', '93'), ('Json', '21', '85'), ('Tom', '19', '80')]
+</code></pre>
+<hr />
+<h3 id="힌트-1"><a class="header" href="#힌트-1">힌트:</a></h3>
+<blockquote>
+<p><strong><em>질문에 입력 데이터가 제공되는 경우 콘솔 입력으로 간주해야 합니다. 여러 정렬 키를 사용하려면 itemgetter를 사용합니다.</em></strong></p>
+</blockquote>
+<hr />
+<p><strong>주요 저자 솔루션: 파이썬 2</strong></p>
+<pre><code class="language-python">from operator import itemgetter, attrgetter
+
+l = []
+while True:
+    s = raw_input()
+    if not s:
+        break
+    l.append(tuple(s.split(",")))
+
+print sorted(l, key=itemgetter(0,1,2))
+</code></pre>
+<hr />
+<p><strong>내 솔루션: 파이썬 3</strong></p>
+<pre><code class="language-python">lst = []
+while True:
+    s = input().split(',')
+    if not s[0]:                          # 빈 입력이면 중단합니다.
+        break
+    lst.append(tuple(s))
+
+lst.sort(key= lambda x:(x[0],int(x[1]),int(x[2])))  # 여기서 키는 람다로 정의되고 데이터는 요소 우선순위 0&gt;1&gt;2에 따라 오름차순으로 정렬됩니다.
+print(lst)
+</code></pre>
+<hr />
+<h2 id="결론"><a class="header" href="#결론">결론</a></h2>
+<p><strong><em>위의 문제를 풀기 전에는 re(정규 표현식) 모듈과 그 사용법에 대해 전혀 몰랐습니다. 여러 키로 정렬하는 방법도 몰랐습니다. 이러한 문제를 다양한 방식으로 해결하기 위해 해당 구문을 탐색하고 배워야 했습니다. re 모듈에는 흥미로운 내용이 많지만 그중 많은 것을 이해하는 데 약간의 어려움을 겪었습니다.</em></strong></p>
+<p><a href="https://github.com/darkprinx/100-plus-Python-programming-exercises-extended/blob/master/Status/Day%205.md" title="5일차"><strong><em>이전 날로 가기</em></strong></a></p>
+<p><a href="https://github.com/darkprinx/100-plus-Python-programming-exercises-extended/blob/master/Status/Day%207.md" title="7일차"><strong><em>다음 날로 가기</em></strong></a></p>
+<p><a href="https://github.com/darkprinx/100-plus-Python-programming-exercises-extended/issues/3"><strong><em>토론</em></strong></a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="Day_5.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="Day_7.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="Day_5.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="Day_7.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

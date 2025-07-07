@@ -1,0 +1,10 @@
+[book]
+title = "파이썬과 익숙해지기"
+authors = ["Abdullah Al Masud Tushar", "Taeyoon Kim"]
+language = "ko"
+multilingual = false
+src = "src"
+
+[output.html]
+
+[output.pdf]
