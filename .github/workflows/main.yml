@@ -3,9 +3,9 @@ name: Build and Release mdBook PDF
 on:
   push:
     branches:
-      - main # Or your default branch, e.g., master
+      - main # 또는 master 등 기본 브랜치
     tags:
-      - 'v*' # Trigger on tags like v1.0, v1.1, etc.
+      - 'v*' # v1.0, v1.1 등 v로 시작하는 태그에 트리거
 
 jobs:
   build-and-release:
@@ -21,10 +21,11 @@ jobs:
       - name: Find generated PDF file
         id: find_pdf
         run: |
-          # PDF 파일이 'book/pdf/output.pdf' 경로에 생성될 것이므로 해당 경로를 명시합니다.
-          PDF_FILE="book/pdf/output.pdf"
-          if [ ! -f "$PDF_FILE" ]; then # 파일이 존재하는지 확인합니다.
-            echo "Error: The PDF file '$PDF_FILE' was not found!"
+          # 'book/pdf/output.pdf' 패턴을 가진 PDF 파일을 저장소 전체에서 찾습니다.
+          # 이는 mdBook 프로젝트가 하위 디렉토리에 있을 경우에도 작동합니다.
+          PDF_FILE=$(find . -path "*/book/pdf/output.pdf" -print -quit)
+          if [ -z "$PDF_FILE" ]; then
+            echo "Error: The PDF file 'output.pdf' within a 'book/pdf' directory was not found!"
             exit 1
           fi
           echo "pdf_path=$PDF_FILE" >> $GITHUB_OUTPUT
