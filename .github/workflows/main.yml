@@ -21,9 +21,10 @@ jobs:
       - name: Find generated PDF file
         id: find_pdf
         run: |
-          PDF_FILE=$(find . -name "*.pdf" | head -n 1)
-          if [ -z "$PDF_FILE" ]; then
-            echo "No PDF file found!"
+          # PDF 파일이 'book/pdf/output.pdf' 경로에 생성될 것이므로 해당 경로를 명시합니다.
+          PDF_FILE="book/pdf/output.pdf"
+          if [ ! -f "$PDF_FILE" ]; then # 파일이 존재하는지 확인합니다.
+            echo "Error: The PDF file '$PDF_FILE' was not found!"
             exit 1
           fi
           echo "pdf_path=$PDF_FILE" >> $GITHUB_OUTPUT
@@ -38,12 +39,3 @@ jobs:
           prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-# To use this workflow:
-# Save the file: Create a new file named release-pdf.yml (or any other meaningful name ending in .yml) inside the .github/workflows/ directory in your repository.
-# Ensure book.toml is present: Make sure your mdBook project's book.toml and source files are in the root of your repository (or adjust the -v mount path if they are in a subfolder).
-# Push a tag: Once the workflow is in place, push a tag to your repository. For example:
-# Bash
-# git tag -a v1.0.0 -m "First PDF release"
-# git push origin v1.0.0
-# GitHub Actions will then detect this tag, run the workflow, build your PDF, and create a new release with the PDF attached.
