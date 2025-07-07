@@ -1,0 +1,49 @@
+name: Build and Release mdBook PDF
+
+on:
+  push:
+    branches:
+      - main # Or your default branch, e.g., master
+    tags:
+      - 'v*' # Trigger on tags like v1.0, v1.1, etc.
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create PDF with mdBook-PDF Docker
+        run: docker run --rm -v ${{ github.workspace }}:/book hollowman6/mdbook-pdf
+
+      - name: Find generated PDF file
+        id: find_pdf
+        run: |
+          PDF_FILE=$(find . -name "*.pdf" | head -n 1)
+          if [ -z "$PDF_FILE" ]; then
+            echo "No PDF file found!"
+            exit 1
+          fi
+          echo "pdf_path=$PDF_FILE" >> $GITHUB_OUTPUT
+
+      - name: Create Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ steps.find_pdf.outputs.pdf_path }}
+          name: Release ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+# To use this workflow:
+# Save the file: Create a new file named release-pdf.yml (or any other meaningful name ending in .yml) inside the .github/workflows/ directory in your repository.
+# Ensure book.toml is present: Make sure your mdBook project's book.toml and source files are in the root of your repository (or adjust the -v mount path if they are in a subfolder).
+# Push a tag: Once the workflow is in place, push a tag to your repository. For example:
+# Bash
+# git tag -a v1.0.0 -m "First PDF release"
+# git push origin v1.0.0
+# GitHub Actions will then detect this tag, run the workflow, build your PDF, and create a new release with the PDF attached.
