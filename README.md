@@ -74,13 +74,25 @@
 
 * **[24일차](https://github.com/darkprinx/100-plus-Python-programming-exercises-extended/blob/master/Status/Day_24.md "24일차 현황")**- ***질문 100-103***
 
-# PDF 파일 만들기
+## mdBook로 확인하기
+
+이 저장소는 `mdbook`을 사용하여 문서화되어 있습니다. 로컬에서 확인하려면 다음 명령어를 사용하세요:
+
+```bash
+mdbook serve
+```
+
+GitHub Pages를 통해 웹에서도 확인하실 수 있습니다.
+
+### PDF 파일 만들기
+
+PDF를 생성하려면 `mdbook-pdf`가 필요합니다. Docker를 사용하는 경우 다음과 같이 생성할 수 있습니다:
 
 ```bash
 docker run --rm -v .:/book hollowman6/mdbook-pdf
 ```
 
-PDF successfully generated at: `/book/book/pdf/output.pdf`
+PDF는 `/book/book/pdf/output.pdf`에 생성됩니다.
 
 ---
 
