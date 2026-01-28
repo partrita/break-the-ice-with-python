@@ -5,3 +5,6 @@ language = "ko"
 src = "src"
 
 [output.html]
+
+[output.pdf]
+optional = true
